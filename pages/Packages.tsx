@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PACKAGES } from '../constants';
-import { Check, X, Zap, CheckSquare, Square } from 'lucide-react';
+import { Check, X, Zap, CheckSquare, Square, FileText, Target, Map } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Packages = () => {
@@ -48,35 +48,79 @@ Submitted via: Request a Quote`
 
   return (
     <div className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-20">
+      <div className="text-center mb-16">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 luxury-text">Investment <span className="text-violet-500">Packages</span></h1>
         <p className="text-gray-400 text-xl max-w-2xl mx-auto font-light leading-relaxed">
-          Bespoke implementation tiers designed to scale as your autonomous infrastructure matures.
+          Flexible AI solutions designed to grow with your business. Start small and scale intelligently.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+      {/* AI Consulting Fee Section */}
+      <div className="mb-20">
+        <div className="glass p-8 md:p-12 rounded-[3rem] border border-violet-500/30 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600/10 blur-[80px] rounded-full pointer-events-none"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-8">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-violet-600/20 text-violet-400 text-[10px] font-bold uppercase tracking-widest mb-6 border border-violet-500/20">
+                Required for Custom Builds
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold luxury-text mb-4 text-white">AI Consulting & Strategy Fee</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 rounded-xl bg-violet-900/30 flex items-center justify-center shrink-0 border border-violet-500/10">
+                    <Target className="w-5 h-5 text-violet-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm">Needs Assessment</p>
+                    <p className="text-gray-500 text-xs mt-1">Audit of current workflows and tech stack.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 rounded-xl bg-violet-900/30 flex items-center justify-center shrink-0 border border-violet-500/10">
+                    <Map className="w-5 h-5 text-violet-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm">Custom Roadmap</p>
+                    <p className="text-gray-500 text-xs mt-1">Personalized strategy for implementation.</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm mt-8 italic">
+                * This fee is required for all custom packages and may be applied toward your build if you move forward.
+              </p>
+            </div>
+            <div className="lg:col-span-4 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-12">
+              <div className="text-5xl font-bold text-white mb-2">$97</div>
+              <div className="text-violet-400 font-bold uppercase tracking-widest text-xs mb-8">One-Time Fee</div>
+              <Link to="/book" className="inline-block w-full px-8 py-4 rounded-2xl bg-white text-black font-bold hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl">
+                Book Strategy Session
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Packages Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-20">
         {PACKAGES.map((pkg) => (
-          <div key={pkg.name} className={`relative flex flex-col p-10 rounded-[3rem] border transition-all duration-500 group hover:-translate-y-4 ${pkg.highlighted ? 'glass border-violet-500 bg-violet-900/10 shadow-2xl lavender-glow' : 'bg-transparent border-white/5 hover:border-white/20'}`}>
+          <div key={pkg.name} className={`relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-500 group hover:-translate-y-2 ${pkg.highlighted ? 'glass border-violet-500/50 bg-violet-900/10 shadow-2xl lavender-glow' : 'bg-transparent border-white/5 hover:border-white/20'}`}>
             {pkg.highlighted && (
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full bg-violet-600 text-[10px] font-bold uppercase tracking-widest text-white shadow-xl flex items-center">
-                <Zap className="w-3 h-3 mr-2" /> Most Popular
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-violet-600 text-[9px] font-bold uppercase tracking-widest text-white shadow-xl flex items-center">
+                <Zap className="w-3 h-3 mr-1.5" /> Most Popular
               </div>
             )}
-            <div className="mb-10">
-              <h3 className="text-3xl font-bold mb-3 luxury-text">{pkg.name}</h3>
-              <div className="flex items-baseline space-x-1">
-                <span className="text-4xl font-bold text-white tracking-tighter">{pkg.price}</span>
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold mb-2 luxury-text">{pkg.name}</h3>
+              <div className="flex items-baseline space-x-1 mb-4">
+                <span className="text-3xl font-bold text-white tracking-tighter">{pkg.price}</span>
               </div>
-              <p className="text-gray-500 mt-6 text-sm leading-relaxed font-light">{pkg.description}</p>
+              <p className="text-gray-500 text-xs leading-relaxed font-light line-clamp-2">{pkg.description}</p>
             </div>
-            <ul className="space-y-5 mb-12 flex-grow">
+            <ul className="space-y-4 mb-10 flex-grow">
               {pkg.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start text-gray-300 text-sm">
-                  <div className="mt-1 mr-4 flex-shrink-0">
-                    <div className="w-5 h-5 rounded-full bg-violet-600/20 flex items-center justify-center">
-                      <Check className="w-3 h-3 text-violet-400" />
-                    </div>
+                <li key={idx} className="flex items-start text-gray-300 text-xs">
+                  <div className="mt-0.5 mr-3 flex-shrink-0">
+                    <Check className="w-3 h-3 text-violet-400" />
                   </div>
                   {feature}
                 </li>
@@ -84,7 +128,7 @@ Submitted via: Request a Quote`
             </ul>
             <button
               onClick={() => handleOpenForm(pkg.name)}
-              className={`w-full py-5 rounded-[1.5rem] font-bold transition-all transform active:scale-95 ${pkg.highlighted ? 'bg-violet-600 text-white hover:bg-violet-500 shadow-xl' : 'glass border border-white/10 hover:bg-white/10 text-white'}`}
+              className={`w-full py-4 rounded-2xl font-bold text-sm transition-all transform active:scale-95 ${pkg.highlighted ? 'bg-violet-600 text-white hover:bg-violet-500 shadow-xl' : 'glass border border-white/10 hover:bg-white/10 text-white'}`}
             >
               {pkg.cta}
             </button>
@@ -92,18 +136,8 @@ Submitted via: Request a Quote`
         ))}
       </div>
 
-      <div className="glass p-12 rounded-[3rem] border border-white/5 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600/5 blur-[80px] rounded-full"></div>
-        <div className="relative z-10 text-center md:text-left">
-          <h3 className="text-3xl font-bold mb-3 luxury-text">Custom Enterprise Architecture</h3>
-          <p className="text-gray-400 max-w-xl">For organizations requiring fully bespoke AI integration, white-labeled solutions, and on-site engineering support.</p>
-        </div>
-        <button 
-          onClick={() => handleOpenForm("Enterprise")}
-          className="relative z-10 px-10 py-5 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-all shadow-xl whitespace-nowrap"
-        >
-          Inquire About Enterprise
-        </button>
+      <div className="text-center text-gray-500 text-sm max-w-2xl mx-auto italic font-light">
+        Final pricing depends on scope and customization. Timelines are provided before work begins. All paid calls and setup fees are non-refundable.
       </div>
 
       {/* Intake Form Modal */}

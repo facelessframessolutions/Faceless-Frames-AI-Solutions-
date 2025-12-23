@@ -1,4 +1,3 @@
-
 import { Solution, Package, CaseStudy, QuizQuestion } from './types';
 
 export const SOLUTIONS: Solution[] = [
@@ -76,44 +75,56 @@ export const SOLUTIONS: Solution[] = [
 
 export const PACKAGES: Package[] = [
   {
-    name: 'Starter',
-    price: 'From $1,499',
-    description: 'Perfect for small businesses looking to automate their first workflow.',
+    name: 'Single AI Agent',
+    price: '$497',
+    description: 'Best for first-time AI users & solo businesses.',
     features: [
-      '1 Custom AI Chatbot',
-      'Basic CRM Integration',
-      'Knowledge Base Setup (up to 50 docs)',
-      '1 Month of Maintenance',
-      'Email Support'
+      '1 AI Agent (Voice or Chatbot)',
+      'Basic customization (FAQs, info)',
+      'Brand-aligned responses',
+      'Testing & launch',
+      '7 days post-launch support'
+    ],
+    cta: 'Select Single Agent'
+  },
+  {
+    name: 'Starter',
+    price: '$997',
+    description: 'Best for small businesses getting serious about automation.',
+    features: [
+      '1 AI Agent (Voice or Chat)',
+      'Lead capture or booking integration',
+      'Custom prompts tailored to business',
+      'Light automation setup',
+      '14 days support'
     ],
     cta: 'Select Starter'
   },
   {
     name: 'Growth',
-    price: 'From $3,499',
-    description: 'Comprehensive AI systems for scaling businesses with higher volume.',
+    price: '$1,197',
+    description: 'Best for service businesses & growing brands.',
     features: [
-      'Everything in Starter',
-      'AI Voice Agent Setup',
-      'Advanced Automation Workflows',
-      'Knowledge Base Setup (Unlimited)',
-      'Dedicated Slack Support Channel',
-      'Bi-weekly Strategy Calls'
+      'Up to 2 AI agents (Voice + Chat/Rec)',
+      'Workflow automation (Leads, Follow-ups)',
+      'Custom scripts & logic',
+      'Optimization & testing',
+      '30 days post-launch support'
     ],
     cta: 'Most Popular',
     highlighted: true
   },
   {
-    name: 'Custom',
-    price: 'Tailored',
-    description: 'Enterprise-grade solutions built for specific high-impact requirements.',
+    name: 'Custom Tailored',
+    price: 'From $1,997',
+    description: 'Best for businesses needing advanced or unique setups.',
     features: [
-      'Bespoke AI Architecture',
-      'Full Stack System Integration',
-      'On-site Training (Optional)',
-      'White-label Solutions',
-      '24/7 Priority Support',
-      'Custom API Development'
+      'Fully customized AI solution(s)',
+      'Multi-agent systems (if needed)',
+      'Advanced automations & integrations',
+      'Custom workflows & logic',
+      'Training & documentation',
+      'Ongoing support options'
     ],
     cta: 'Request Quote'
   }

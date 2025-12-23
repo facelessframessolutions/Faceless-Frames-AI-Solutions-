@@ -84,7 +84,7 @@ const Booking = () => {
                 Phase 1: Scheduling
               </div>
               
-              <h3 className="text-3xl font-bold luxury-text mb-4">20-Min AI Discovery Call</h3>
+              <h3 className="text-3xl font-bold luxury-text mb-4">20-Min AI Discovery Call <span className="text-violet-400">(Free)</span></h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
                 Connect with our lead architect to map out your implementation strategy.
               </p>
