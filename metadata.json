@@ -1,0 +1,8 @@
+{
+  "name": "Faceless Frames AI Solutions",
+  "description": "Modern luxury AI consulting web application with intelligent quiz, solution showcasing, and booking management.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
